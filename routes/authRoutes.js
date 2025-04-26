@@ -1,7 +1,7 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const User = require('../models/user');
+const User = require('../models/User.mongo');
 
 const router = express.Router();
 
@@ -11,7 +11,7 @@ router.post('/register', async (req, res) => {
     const { username, password, email, role } = req.body;
 
     // Check for existing user
-    const existingUser = await User.findOne({ where: { email } });
+    const existingUser = await User.findOne({ email });
     if (existingUser) return res.status(400).json({ message: 'Email already in use.' });
 
     // Hash password
@@ -32,31 +32,39 @@ router.post('/register', async (req, res) => {
   }
 });
 
-// POST /login
-router.post('/login', async (req, res) => {
+// Login controller function
+const login = async (req, res) => {
+  const { username, password } = req.body;
+
   try {
-    const { email, password } = req.body;
+    // Try finding by username OR email
+    const user = await User.findOne({ 
+      $or: [{ username }, { email: username }] 
+    });
 
-    // Find user
-    const user = await User.findOne({ where: { email } });
-    if (!user) return res.status(404).json({ message: 'User not found.' });
+    if (!user) {
+      return res.status(401).json({ message: 'User not found' });
+    }
 
-    // Compare passwords
-    const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) return res.status(401).json({ message: 'Invalid credentials.' });
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+    if (!isPasswordValid) {
+      return res.status(401).json({ message: 'Invalid credentials' });
+    }
 
-    // Create token
     const token = jwt.sign(
-      { id: user.id, email: user.email, role: user.role },
+      { id: user._id, username: user.username, role: user.role },
       process.env.JWT_SECRET,
-      { expiresIn: '1h' }
+      { expiresIn: '2h' }
     );
 
-    res.json({ message: 'Login successful.', token });
-  } catch (error) {
-    console.error('Login error:', error);
-    res.status(500).json({ message: 'Login failed.' });
+    res.json({ token });
+  } catch (err) {
+    console.error('❌ Error logging in:', err);
+    res.status(500).json({ message: 'Login failed' });
   }
-});
+};
+
+// 👇 ADD THIS to register the login function
+router.post('/login', login);
 
 module.exports = router;

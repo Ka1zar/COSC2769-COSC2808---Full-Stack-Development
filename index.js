@@ -8,7 +8,7 @@ const authRoutes = require('./routes/authRoutes');
 const protectedRoutes = require('./routes/protectedRoutes');
 
 // DB connections
-require('./config/db.mysql');
+// require('./config/db.mysql');
 require('./config/db.mongo');
 
 app.use(cors());
