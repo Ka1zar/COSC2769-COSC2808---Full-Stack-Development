@@ -1,7 +1,7 @@
 // controllers/authController.js
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const User = require('../models/User.mysql'); // MySQL user model
+const User = require('../models/User.mongo');
 
 // Register a new user
 const register = async (req, res) => {
