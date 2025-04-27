@@ -1,0 +1,22 @@
+/* AdminDashboard.css */
+.admin-dashboard {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.admin-dashboard h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.stats {
+    display: flex;
+    gap: 30px;
+}
+
+.stat-item {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 30%;
+}
