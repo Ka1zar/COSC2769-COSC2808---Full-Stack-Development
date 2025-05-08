@@ -11,6 +11,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "mongoose": "^8.14.0"
+    "cloudinary": "^1.41.3",
+    "mongoose": "^8.14.0",
+    "multer": "^1.4.5-lts.2",
+    "multer-storage-cloudinary": "^4.0.0"
   }
 }
