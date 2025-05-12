@@ -1,0 +1,17 @@
+/* Styles cho Layout */
+.layoutWrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* Bạn có thể thêm font-family hoặc các style global nhỏ tại đây */
+  }
+  
+  .layoutContent {
+    flex-grow: 1;
+    /* Có thể thêm padding cho nội dung chính nếu cần */
+  }
+
+  .mainContent {
+    margin-left: 250px; /* Match the width of your sidebar */
+    /* Add any other styles for your main content area */
+  }

@@ -1,0 +1,118 @@
+/* src/pages/Admin/AdminDashboard/AdminDashBoard.module.css */
+
+.dashboardContainer {
+    padding: 2rem; /* Padding for the entire dashboard content */
+    /* Equivalent to 'space-y-8' on the outermost container,
+       we'll use margin-bottom for the individual sections */
+  }
+  
+  .dashboardTitle {
+    font-size: 2rem; /* H1 font size */
+    font-weight: bold;
+    margin-bottom: 0.5rem; /* Space below the main title */
+  }
+  
+  .dashboardDescription {
+      color: #6b7280; /* Gray color for the description */
+      margin-bottom: 2rem; /* Space below the description */
+  }
+  
+  .statsGrid {
+    display: grid;
+    /* Create a responsive grid: default 1 column, smaller screens 2 columns, larger screens 4 columns */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px; /* Gap between grid items (equivalent to Tailwind gap-6) */
+    margin-bottom: 2rem; /* Space below the stats grid */
+  }
+  
+  .statBox {
+    background-color: #ffffff; /* White background */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow (equivalent to shadow-md) */
+    border-radius: 8px; /* Rounded corners (equivalent to rounded-lg) */
+    padding: 16px; /* Internal padding (equivalent to p-4) */
+    display: flex; /* Use flexbox to align content and icon */
+    align-items: center; /* Vertically center items */
+    justify-content: space-between; /* Distribute space between content and icon */
+  }
+  
+  .statBoxTitle {
+    font-size: 1.125rem; /* Box title font size (equivalent to text-lg) */
+    font-weight: 600; /* Font weight (equivalent to font-semibold) */
+    color: #4a5568; /* Gray text color (equivalent to text-gray-700) */
+  }
+  
+  .statBoxValue {
+    font-size: 1.875rem; /* Statistic value font size (equivalent to text-3xl) */
+    font-weight: 700; /* Font weight (equivalent to font-bold) */
+    /* Text color will be overridden for each box type below */
+  }
+  
+  .statBoxIcon {
+    font-size: 2.5rem; /* Icon size (equivalent to text-4xl) */
+    /* Icon color will be overridden for each box type below */
+  }
+  
+  /* Specific colors for each box type (equivalent to Tailwind text colors) */
+  .statBox.upcoming .statBoxValue,
+  .statBox.upcoming .statBoxIcon {
+    color: #3b82f6; /* Blue */
+  }
+  
+  .statBox.pending .statBoxValue,
+  .statBox.pending .statBoxIcon {
+    color: #f59e0b; /* Yellow/Orange */
+  }
+  
+  .statBox.thisWeek .statBoxValue,
+  .statBox.thisWeek .statBoxIcon {
+    color: #22c55e; /* Green */
+  }
+  
+  .statBox.totalRsvps .statBoxValue,
+  .statBox.totalRsvps .statBoxIcon {
+    color: #a855f7; /* Purple */
+  }
+  
+  /* Styles for the Recipients and RSVP Responses sections */
+  .section {
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 24px; /* Equivalent to p-6 */
+    margin-bottom: 2rem; /* Space below each section */
+  }
+  
+  .sectionTitle {
+    font-size: 1.25rem; /* Equivalent to text-xl */
+    font-weight: 600; /* Equivalent to font-semibold */
+    margin-bottom: 8px; /* Equivalent to mb-2 */
+  }
+  
+  .list {
+    list-style: disc;
+    list-style-position: inside;
+    /* Equivalent to space-y-1, using gap in flexbox or margin-bottom for li */
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  /* Removed empty ruleset for .listItem */
+  
+  .listItemEmail {
+      color: #6b7280; /* Gray color for email */
+  }
+  
+  .listItemStatus {
+      font-weight: 500; /* Slightly bold for RSVP status */
+  }
+  
+  /* Style for the "Upcoming Events" section below the stats */
+  .upcomingEventsSection .sectionTitle {
+      /* Adjust specific styles if needed */
+       margin-bottom: 0.5rem;
+  }
+  .upcomingEventsSection .sectionDescription {
+       color: #6b7280;
+       margin-bottom: 1rem;
+  }

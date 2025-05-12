@@ -1,0 +1,243 @@
+/* Color Variables (Customize as you like) */
+:root {
+  --primary-color: #007bff; /* Blue color */
+  --primary-hover-color: #0056b3;
+  --text-color: #333;
+  --border-color: #ccc;
+  --input-bg-color: #fff;
+  --input-focus-border-color: var(--primary-color);
+  --link-color: var(--primary-color);
+  --secondary-btn-border: #6c757d;
+  --secondary-btn-text: #6c757d;
+  --secondary-btn-hover-bg: #f8f9fa;
+  --placeholder-color: #999;
+  --icon-color: #666; /* Icon color */
+  --background-page: #f4f7f6; /* Page background color */
+  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --font-family: sans-serif; /* Choose font family */
+}
+
+/* Basic Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--text-color);
+  background-color: var(--background-page);
+}
+
+/* Main container centered on the screen */
+.login-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Minimum height equal to viewport height */
+  padding: 20px;
+}
+
+/* Box containing the form */
+.login-box {
+  background-color: #fff;
+  padding: 30px 40px;
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+  width: 100%;
+  max-width: 400px; /* Limit maximum width */
+}
+
+/* "Sign In" title */
+.login-title {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 1.8rem; /* Font size */
+  font-weight: 600; /* Font weight */
+  color: var(--text-color);
+}
+
+/* Form */
+.login-form {
+  display: flex;
+  flex-direction: column; /* Stack components vertically */
+  gap: 20px; /* Space between direct child components (input-group, actions, button...) */
+}
+
+/* Group containing icon and input */
+.input-group {
+  display: flex;
+  align-items: center; /* Vertically center icon and input */
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  padding: 0 12px; /* Horizontal padding */
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Transition effects */
+}
+
+.input-group:focus-within { /* Style when an input inside is focused */
+  border-color: var(--input-focus-border-color);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Create a subtle outline effect */
+}
+
+/* Icon within the input group */
+.input-icon {
+  /* old SVG style: fill: var(--icon-color); */
+  color: var(--icon-color); /* <-- Use color instead of fill for Font Awesome */
+  font-size: 1.5rem; /* <-- Add font-size to adjust icon size (consistent with Register) */
+  margin-right: 10px; /* Space between icon and input */
+  flex-shrink: 0; /* Prevent the icon from shrinking */
+}
+
+/* Input field */
+.input-field {
+  flex-grow: 1; /* Input takes up remaining space */
+  border: none; /* Remove default border */
+  outline: none; /* Remove outline on focus */
+  padding: 10px 0; /* Vertical padding for input */
+  font-size: 1rem;
+  background-color: transparent; /* Transparent background */
+  color: var(--text-color);
+}
+
+/* Placeholder text */
+.input-field::placeholder {
+  color: var(--placeholder-color);
+}
+
+/* Password show/hide button */
+.password-toggle {
+  cursor: pointer;
+  padding: 5px; /* Add padding for easier clicking */
+  margin-left: 8px; /* Space from the input */
+  display: flex; /* To center the icon inside if needed */
+  align-items: center;
+}
+
+/* Toggle icon (eye/eye-slash) */
+.toggle-icon {
+  width: 1.1rem; /* Eye icon width */
+  height: 1.1rem; /* Eye icon height */
+  /* old SVG style: fill: var(--icon-color); */
+  color: var(--icon-color); /* <-- Use color instead of fill for Font Awesome */
+}
+
+/* Remember Me and Forgot Password area */
+.actions {
+  display: flex;
+  justify-content: space-between; /* Push the two items to the sides */
+  align-items: center; /* Vertically center items */
+  font-size: 0.9rem; /* Smaller font size */
+  margin-top: -5px; /* Reduce top margin slightly */
+  margin-bottom: 5px; /* Add bottom margin */
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 6px; /* Space between checkbox and text */
+  cursor: pointer;
+  color: #555;
+}
+
+.checkbox {
+  margin-right: 4px; /* Space from "Remember me" text */
+  width: 16px;
+  height: 16px;
+}
+
+/* Forgot password link */
+.forgot-password-link {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.forgot-password-link:hover {
+  text-decoration: underline;
+}
+
+/* Common button style */
+.btn {
+  padding: 12px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+  text-align: center;
+  display: block; /* To take full width */
+  width: 100%;
+}
+
+/* Primary button (Sign In) */
+.primary-btn {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.primary-btn:hover {
+  background-color: var(--primary-hover-color);
+}
+
+/* Secondary buttons (Sign Up, Back) */
+.secondary-actions {
+  display: flex;
+  justify-content: space-between; /* Place the two buttons on opposite sides */
+  gap: 15px; /* Space between the two buttons */
+  margin-top: 10px; /* Space from the Sign In button */
+}
+
+.secondary-btn {
+  background-color: transparent;
+  color: var(--secondary-btn-text);
+  border: 1px solid var(--secondary-btn-border);
+}
+
+.secondary-btn:hover {
+  background-color: var(--secondary-btn-hover-bg);
+}
+
+/* Register link at the bottom (if used) */
+.register-link {
+  text-align: center;
+  margin-top: 20px; /* Space from the element above */
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.register-link a {
+  color: var(--link-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive (Simple example) */
+@media (max-width: 480px) {
+  .login-box {
+    padding: 20px;
+  }
+
+  .login-title {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+  }
+
+  .actions {
+    flex-direction: column; /* Stack vertically on small screens */
+    align-items: flex-start; /* Align to the left */
+    gap: 10px;
+  }
+
+  .secondary-actions {
+     flex-direction: column; /* Stack secondary buttons vertically */
+     gap: 10px;
+  }
+  .btn {
+     padding: 10px 12px;
+  }
+}
