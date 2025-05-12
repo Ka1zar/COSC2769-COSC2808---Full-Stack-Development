@@ -1,0 +1,163 @@
+/* src/components/Sidebar.module.css */
+
+.sidebar {
+  width: 240px; /* Sidebar width */
+  height: 100vh; /* Full viewport height */
+  background-color: #ffffff; /* White background */
+  border-right: 1px solid #e5e7eb; /* Right border */
+  display: flex; /* Use flexbox */
+  flex-direction: column; /* Stack children vertically */
+  justify-content: space-between; /* Distribute space between top/nav/bottom sections */
+  padding: 1.5rem 1rem; /* Vertical and horizontal padding */
+  position: fixed; /* Fix sidebar position */
+  top: 0;
+  left: 0;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+  font-family: sans-serif; /* Example font family */
+}
+
+.logo {
+  font-size: 1.8rem; /* Logo font size */
+  font-weight: bold; /* Bold font weight */
+  margin-bottom: 2rem; /* Space below the logo */
+  color: #2563eb; /* Blue color */
+  display: flex;
+  align-items: center;
+  /* Optional: Add padding-left if you want the logo to align with nav text */
+  /* padding-left: 10px; */
+}
+
+/* Style for optional logo icon */
+.logo i {
+  margin-right: 10px;
+  color: #2563eb; /* Example icon color */
+}
+
+
+/* Header for sections (ADMIN, ORGANIZER, GENERAL) */
+.sectionHeader {
+  font-size: 0.75rem; /* Smaller font size */
+  color: #6b7280; /* Gray color */
+  margin-top: 1.5rem; /* Space above the header */
+  margin-bottom: 0.5rem; /* Space below the header */
+  padding-left: 10px; /* Indent slightly to align with nav items */
+  text-transform: uppercase; /* Uppercase text */
+  font-weight: 600;
+}
+
+/* Navigation section container */
+.nav {
+  display: flex; /* Use flexbox */
+  flex-direction: column; /* Stack nav items vertically */
+  gap: 0.5rem; /* Space between nav items */
+  /* margin-bottom is handled by the space-between in .sidebar */
+}
+
+/* Individual navigation item (Link) */
+.navItem {
+  display: flex; /* Use flexbox to align icon and text */
+  align-items: center; /* Vertically center */
+  padding: 0.6rem 10px; /* Padding around the item */
+  color: #374151; /* Dark gray text color */
+  text-decoration: none; /* Remove underline */
+  font-weight: 500; /* Medium font weight */
+  border-radius: 5px; /* Rounded corners on hover */
+  transition: background-color 0.2s ease, color 0.2s ease; /* Smooth transition */
+}
+
+.navItem:hover {
+  background-color: #f3f4f6; /* Light gray background on hover */
+  color: #111827; /* Darker text on hover */
+}
+
+/* Icon within a navigation item */
+.navItem svg { /* Target SVG icon (for react-icons/fa) */
+  margin-right: 10px; /* Space between icon and text */
+  font-size: 1.1rem; /* Icon size */
+  color: #6b7280; /* Gray icon color */
+  flex-shrink: 0; /* Prevent icon from shrinking */
+}
+
+/* Style for Font Awesome <i> tags if you use them instead of react-icons/fa */
+.navItem i {
+  margin-right: 10px;
+  font-size: 1.1rem;
+  color: #6b7280;
+  flex-shrink: 0;
+}
+
+
+/* User/Admin section at the bottom */
+.adminSection {
+  margin-top: auto; /* Push this section to the bottom */
+  padding-top: 1.5rem; /* Space above this section */
+  border-top: 1px solid #e5e7eb; /* Top border */
+  display: flex; /* Use flexbox */
+  flex-direction: column; /* Stack avatar, info, logout vertically */
+  align-items: flex-start; /* Align items to the start (left) */
+  gap: 0.5rem; /* Space between items */
+  padding-left: 10px; /* Align with nav items */
+}
+
+/* Avatar circle */
+.avatar {
+  background-color: #9ca3af; /* Gray background */
+  color: white; /* White text */
+  font-weight: bold;
+  width: 32px; /* Avatar size */
+  height: 32px; /* Avatar size */
+  border-radius: 50%; /* Circular shape */
+  display: flex; /* Use flexbox to center text */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  font-size: 0.9rem; /* Font size for initials */
+  flex-shrink: 0; /* Prevent avatar from shrinking */
+}
+
+/* Container for username and email */
+.userInfo {
+  display: flex;
+  flex-direction: column; /* Stack username and email vertically */
+  /* No flex-grow here to prevent userInfo from pushing logout */
+}
+
+.userName {
+  font-size: 0.9rem; /* Font size for username */
+  font-weight: 500; /* Medium font weight */
+  color: #374151; /* Dark gray text */
+}
+
+.email {
+  font-size: 0.8rem; /* Smaller font size for email */
+  color: #6b7280; /* Gray color */
+}
+
+/* Logout Button */
+.logout {
+  background: none; /* No background */
+  border: none; /* No border */
+  color: #ef4444; /* Red color */
+  cursor: pointer; /* Hand cursor */
+  padding: 0.5rem 0; /* Add padding for easier clicking */
+  font-size: 0.9rem; /* Font size */
+  display: flex; /* Use flexbox to align icon and text */
+  align-items: center;
+  gap: 5px; /* Space between icon and text */
+  transition: color 0.2s ease; /* Color transition on hover */
+}
+
+.logout:hover {
+  color: #dc2626; /* Darker red on hover */
+}
+
+/* Icon within the Logout button */
+.logout svg { /* Target SVG icon (for react-icons/fa) */
+  font-size: 1rem; /* Icon size */
+  color: #ef4444; /* Red color */
+}
+
+/* Style for Font Awesome <i> tag in Logout button */
+.logout i {
+  font-size: 1rem;
+  color: #ef4444;
+}
