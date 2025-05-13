@@ -1,0 +1,162 @@
+/* EventList.module.css */
+
+.eventListContainer {
+    margin-top: 20px;
+}
+
+.sectionTitle {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #555;
+    text-align: center; /* Center the title */
+}
+
+.loading, .error, .emptyState {
+    text-align: center;
+    padding: 20px;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.error {
+    color: #d32f2f; /* Red color for errors */
+}
+
+.eventCardGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Space between cards */
+}
+
+.eventCard {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Ensures image corners are rounded */
+    cursor: pointer; /* Indicate clickable */
+    transition: transform 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column; /* Stack image and content */
+}
+
+.eventCard:hover {
+    transform: translateY(-5px); /* Slight lift effect on hover */
+}
+
+.eventCardImageContainer {
+    width: 100%;
+    height: 180px; /* Fixed height for images */
+    overflow: hidden;
+    position: relative; /* For attendee count overlay */
+    background-color: #eee; /* Placeholder background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    color: #777;
+}
+
+.eventCardImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the container while maintaining aspect ratio */
+    display: block;
+}
+
+.eventCardImagePlaceholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #eee;
+    color: #777;
+    font-size: 1.2rem;
+}
+
+.attendeeCountOverlay {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.eventCardContent {
+    padding: 15px;
+    flex-grow: 1; /* Allows content to take remaining space */
+    display: flex;
+    flex-direction: column;
+}
+
+.eventCardName {
+    font-size: 1.2rem;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.eventStatusConfirmed {
+    display: inline-block; /* Display as a block */
+    background-color: #28a745; /* Green */
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.eventStatusDeclined {
+    display: inline-block; /* Display as a block */
+    background-color: #dc3545; /* Red */
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+
+.eventCardDateTime {
+    margin-bottom: 10px;
+}
+
+.eventCardInfo {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.eventCardInfo i {
+    margin-right: 8px;
+    color: #007bff; /* Accent color */
+}
+
+.eventCardDescription {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 15px;
+    line-height: 1.4;
+    flex-grow: 1; /* Allows description to push icons down */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .eventCardGrid {
+        grid-template-columns: 1fr; /* Single column on small screens */
+    }
+
+    .eventCardImageContainer {
+        height: 150px; /* Adjust image height for smaller screens */
+    }
+}
