@@ -23,6 +23,9 @@ import AttendeeDashboard from './pages/User/AttendeeDashboard.jsx';
 import Notification from './pages/User/notification.jsx';
 // Import the new EventDetailPage
 import EventDetailPage from './pages/User/EventDetailPage.jsx'; // <-- EventDetailPage is imported here
+import EventList from './pages/User/EventList.jsx'; // Import EventList nếu cần
+import CreateEventPage from './pages/User/Organizer/CreateEventPage'; // Import CreateEventPage nếu cần
+
 
 
 // Import các trang Organizer từ folder pages/User/Organizer (vị trí mới)
@@ -37,8 +40,11 @@ import axios from 'axios';
 import { Toaster } from 'react-hot-toast'; // Import Toaster
 
 
-axios.defaults.baseURL = 'http://localhost:3000'; // Kiểm tra lại cổng backend thực tế
+axios.defaults.baseURL = 'http://localhost:5000';
+// Rất quan trọng để cho phép Axios gửi cookies/authorization headers qua các yêu cầu CORS
 axios.defaults.withCredentials = true;
+// --- KẾT THÚC ĐOẠN CODE ĐƯỢC THÊM HOẶC CẬP NHẬT ---
+// Đoạn code này là một ví dụ về cách sử dụng React Router để định nghĩa các route cho ứng dụng của bạn.
 
 
 function App() {
@@ -79,8 +85,10 @@ function App() {
            <Route element={<Layout />}> {/* Có thể đổi thành LayoutOrganizer nếu có */}
                <Route path="/user/organizer/dashboard" element={<OrganizerDashboard />} />
                <Route path="/user/organizer/event-management" element={<EventManagement />} />
+               <Route path="/user/organizer/events" element={<EventList />} /> {/* Nếu cần danh sách sự kiện */}
+          
                {/* Thêm route tạo sự kiện nếu nó là trang riêng */}
-               {/* <Route path="/user/organizer/create-event" element={<CreateEventPage />} /> */}
+               <Route path="/user/organizer/create-event" element={<CreateEventPage />} /> 
                {/* Thêm các route Organizer khác */}
            </Route>
 
