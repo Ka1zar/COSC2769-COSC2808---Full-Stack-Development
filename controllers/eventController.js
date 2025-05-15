@@ -23,14 +23,4 @@ const createEvent = async (req, res) => {
   }
 };
 
-// Get total number of events
-const getTotalEvents = async (req, res) => {
-  try {
-    const count = await Event.countDocuments();
-    res.json({ totalEvents: count });
-  } catch (err) {
-    res.status(500).json({ message: 'Error fetching total events' });
-  }
-};
-
-module.exports = { createEvent, getTotalEvents };
+module.exports = { createEvent };

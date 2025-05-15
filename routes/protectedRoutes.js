@@ -2,8 +2,7 @@
 const express = require('express');
 const { authenticate, authorize } = require('../middleware/auth');
 const router = express.Router();
-const { getTotalUsers, getUsersByRole, getNewUsersOverTime } = require('../controllers/authController');
-const { getTotalEvents } = require('../controllers/eventController');
+const { getTotalUsers, getUsersByRole, getNewUsersOverTime, getTotalEvents } = require('../controllers/statisticController');
 
 // Protected route that only accessible with valid JWT
 router.get('/admin-only', authenticate, (req, res) => {
