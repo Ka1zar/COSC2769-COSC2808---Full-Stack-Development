@@ -1,4 +1,3 @@
-// models/Event.mongo.js
 const mongoose = require('mongoose');
 
 const eventSchema = new mongoose.Schema({
@@ -6,7 +5,7 @@ const eventSchema = new mongoose.Schema({
   description: { type: String },
   date: { type: Date, required: true },
   location: { type: String },
-  image: { type: String } // This will store the Cloudinary image URL
+  image: { type: String }
 }, { timestamps: true });
 
 module.exports = mongoose.model('Event', eventSchema);
