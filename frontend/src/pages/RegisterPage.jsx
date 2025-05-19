@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import './RegisterPage.css'; // <-- Import the CSS file
+import { toast } from 'react-hot-toast'; // Import toast for notifications
 
 // Ensure Font Awesome is set up in your project.
 // If you are using a CDN, just include the link in index.html.
@@ -27,12 +28,12 @@ export default function RegisterPage() {
 
     try {
       const { data } = await axios.post('http://localhost:5000/api/auth/register', { username, email, password, role });
-      alert('Registration successful!'); // Consider replacing with a toast message
+      toast.success('Registration successful!'); // Replace alert with toast message
       navigate('/login'); // Redirect to the login page
     } catch (e) {
       const errorMessage = e.response?.data?.message || 'Registration failed. Please try again.';
       setError(errorMessage); // Update error state
-      alert(errorMessage); // Display error to the user (consider using toast)
+      toast.error(errorMessage); // Display error to the user using toast
       console.error("Registration failed:", e);
     }
   }
