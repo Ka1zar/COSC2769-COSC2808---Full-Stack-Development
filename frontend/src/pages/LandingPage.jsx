@@ -6,7 +6,7 @@ const LandingPage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className={styles.landingPageContainer}> /
+    <div className={styles.landingPageContainer}>
       <div className={styles.contentWrapper}> 
         {/* Text Section */}
         <div className={styles.textSection}> 
